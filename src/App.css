@@ -1,38 +1,168 @@
 .App {
   text-align: center;
 }
+#root{
+  background-color:0b0b0b; 
+}
+html, body {
+height: 100%;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+}
+/* @font-face {
+  font-family: Usuzi;
+} */
+#force{
+  background-color: #0b0b0b;
+}
+/* NAVBAR */
+
+#hover:hover{
+  color: #f85b1a;
+}
+#hover{
+  color: #000000;
+}
+#hoverlogout:hover{
+  color: #8a9294;
+}
+#hoverlogout{
+  color: #f85b1a;
+}
+.header {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  vertical-align: center!important;
+ 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar {
+  margin-top:-1px;
+  text-align: center;
+  background-color: #35393a; 
+  width: 100%;
+  color: rgb(137, 182, 221);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbarColumn {
+  text-align: center;
+  font-weight: 500;
+  font-size: 13pt;
+  color: #f85b1a;
+}
+
+#logoutlink {
+  color: #f85b1a;
+}
+
+.logo {
+  height: 65px;
+  width: 75px;
+}
+
+/* HOMEPAGE */
+
+.aboutus {
+  text-align: center;
+  border: 5px solid #8a9294;
+  margin-right: 20%;
+  margin-left: 20%;
+  display: block;
+  color: #f85b1a;
+}
+
+.welcome {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: #8a9294;
+  font-size: 80pt;
+  text-align: center;
+}
+
+.welcome1{
+  font-weight: 500;
+  color: rgb(254, 80, 0);
+  font-size: 85pt;
+  text-align: center;
+}
+
+/* AUTH */
+.registerHeader, .loginHeader {
+  color: rgb(254, 80, 0);
+}
+
+#authbutton {
+  color: black;
+  border:1px solid black;
+  background-color: #8a9294;
+   
+}
+
+.auth-container {
+  display: block;
+  position: relative;
+  text-align: center; 
+}
+
+.auth {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
+  align-items: center; 
+  text-align: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.login {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.register {
+  display: inline-block;
+  position: relative;
+  text-align: center; 
+}
+
+.email {
+  width: 2em;
   }
-  to {
-    transform: rotate(360deg);
-  }
+  
+.password {
+  width: 20em;
+}
+
+/* FOOTER */
+
+#footer {
+  border-top: 1px solid ;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #35393a ;
+  height: 35px;
+  color: #000000;
+}
+
+.footer {
+  display: block;
+  padding: 10px;
+  width: 100%;
+}
+
+.footerText {
+  font-size: 8pt;
+}
+
+
+
+
+/* Extra */
+#extrahelp {
+  text-align: center;
+
 }
