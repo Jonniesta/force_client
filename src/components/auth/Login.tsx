@@ -74,7 +74,9 @@ class Login extends React.Component<LoginAcceptedProps, {redirect: null | string
               placeholder="Password"
               onChange={(e) =>
                 this.props.setPassword(e.target.value)}
-              value={this.props.password} />
+              value={this.props.password} 
+              type="password"
+              />
           </FormGroup>
           <Button type="submit">Login</Button>
         </Form>

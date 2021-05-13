@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
-import { Button, Card, CardHeader, CardText, Container, Modal, Row } from 'reactstrap';
+import { Button, Card, CardHeader, CardText, Container, Modal, ModalBody, Row, FormGroup, Label, Input, Col, Form } from 'reactstrap';
 
 import EditTrainerPost from "./edittrainerform";
 
@@ -91,103 +91,132 @@ class ViewTrainerPosts extends React.Component<ViewTrainerPostsProps, ViewTraine
 
     render() {
         return (
-            <div>
-                <div className="viewPostsHeader">
-                    <h4 className="viewVolunteerHeader">Find Volunteers</h4>
-                </div>
-
-                <div>
-                    {this.state.trainerPosts.length > 0 ? (this.state.trainerPosts.map((event: any, index: any) => (
-
-                        <Container key={event.id} className="serviceCard">
-
-                            <Card
-                                onMouseEnter={e => {
-                                    this.setState({
-                                        userId: event.id
-                                    })
-                                    console.log(this.state.userId)
-                                }}
-                                body inverse
+            <Modal isOpen={true}>
+                <ModalBody>
+                    <Container className="postContainer">
+                        <Card
+                            body inverse style={{
+                                backgroundColor: '#96A7AA',
+                                borderColor: '#646F71',
+                                borderWidth: '.25em'
+                            }}>
+                            <CardHeader
                                 style={{
-                                    backgroundColor: '#96A7AA',
-                                    borderColor: '#646F71',
-                                    borderWidth: '.25em'
+                                    backgroundColor: '#646F71'
                                 }}>
+                                <h4 className="postHeader">
+                                    Update Your Help Request
+                                </h4>
+                            </CardHeader>
+                            <br />
+                            <Form className='postForm'  >
+                                <FormGroup>
+                                    <Label for="exampleCity">First Name</Label>
+                                    <Input type="text" name="city" id="exampleCity" placeholder="First Name" />
+                                </FormGroup>
+                            </Form>
+                        </Card>
+                        <Col md={6}>
+                            <FormGroup>
+                                <Label for="exampleState">Last Name</Label>
+                                <Input type="text" name="state" id="exampleState" placeholder="Last Name" />
+                            </FormGroup>
+                        </Col>
 
-                                <CardHeader
-                                    style={{
-                                        backgroundColor: '#646F71'
-                                    }}>
-                                    <p className="cardText">Your neighbor</p>
-                                    <p className="cardUsername">{event.user.username}</p>
-                                    <p className="cardText">is available to help with</p>
-                                    <p className="cardHelpType">{event.title}</p>
-                                </CardHeader>
-                                <br />
-                                <CardText>
-                                    <p className="cardText">Description:</p>
-                                    <p className="cardText">{event.description}</p>
-                                </CardText>
-                                <CardText >
-                                    <p className="cardText">Availability:
-                                    <br />
-                                        {Object.entries(event.availability).map((day, i) => (
-                                            <div key={i}>
-                                                { day[1] ? <span>{day[0]}</span> : null}
-                                            </div>))
-                                        }</p>
-                                </CardText>
-                                <CardText >
-                                    <p className="cardText">Instances: {event.instances}/{event.instances}</p>
-                                </CardText>
-                                {/* <CardText>
-                                    <p className="cardText">Posted on:
-                                    {this.state.helpPosts[index].createdAt}</p>
-                                </CardText> */}
-                                <Row className="cardButtons">
-                                    <Button className="requestHelpButton">Request help from {event.user.username}</Button>
+                        <Form className="form">
+                            <Col>
+                                <FormGroup>
+                                    <Label>Address</Label>
+                                    <Input placeholder="Address"
+
+                                    />
+                                    <Row form>
+                                        <Col md={6}>
+                                            <FormGroup>
+                                                <Label for="exampleCity">City</Label>
+                                                <Input type="text" name="city" id="exampleCity" placeholder="City" />
+                                            </FormGroup>
+                                        </Col>
+                                        <Col md={4}>
+                                            <FormGroup>
+                                                <Label for="exampleState">State</Label>
+                                                <Input type="text" name="state" id="exampleState" placeholder="State" />
+                                            </FormGroup>
+                                        </Col>
+                                        <Col md={2}>
+                                            <FormGroup>
+                                                <Label for="exampleZip">Zip</Label>
+                                                <Input type="text" name="zip" id="exampleZip" placeholder="Zip Code" />
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col md={2}>
+                                            <FormGroup>
+                                                <Label>Preferred Form Of Contact</Label>
+                                                <Input type="select" name="select" >
+                                                    <option>-Select-</option>
+                                                    <option>Cell Phone</option>
+                                                    <option>Home Phone</option>
+                                                    <option>Email</option>
+                                                </Input>
+                                            </FormGroup>
+                                        </Col>
+                                        <Col md={4}>
+                                            <FormGroup>
+                                                <Label for="exampleZip">Phone Number</Label>
+                                                <Input type="text" name="Phone" id="Phone" placeholder="Phone Number" />
+                                            </FormGroup>
+                                        </Col>
+                                        <Col md={4}>
+                                            <FormGroup>
+                                                <Label for="exampleZip">Email</Label>
+                                                <Input type="text" name="Phone" id="Phone" placeholder="Email" />
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                </FormGroup>
+                            </Col>
+                            <Col>
+                                <FormGroup>
+                                    <Label for="exampleDate">Date</Label>
+                                    <Input type="date" name="date" id="exampleDate" placeholder="date placeholder" />
+                                </FormGroup>
+                            </Col>
+                            <Col>
+                                <FormGroup>
+                                    <Label for="select">Gender</Label>
+                                    <Input type="select" name="select">
+                                        <option>-SELECT-</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Other</option>
+                                    </Input>
+                                </FormGroup>
+                            </Col>
+
+
+                            <Container>
+                                <Row className="updateButtons">
+                                    <Button
+                                        type="button"
+                                        id="recipientCancelButton">
+                                        Cancel
+                                    </Button>
+                                    <Button
+                                        type="submit"
+                                        id="recipientUpdateButton">
+                                        Update
+                                    </Button>
                                 </Row>
+                            </Container>
+                        </Form>
+                    </Container>
+                </ModalBody>
+            </Modal >
 
-                                <Row className="cardButtons">
-                                    {(event.user.id === this.props.userId) ?
-                                        <>
-                                            <Button
-                                                type="button"
-                                                className="volunteerDeletePost"
-                                                onClick={this.deletePost}>
-                                                Delete
-                                            </Button>
-                                            <Button
-                                                type="button"
-                                                className="volunteerEditPost"
-                                                onClick={this.openModal}>
-                                                Edit
-                                            </Button>
-                                        </> : <></>
-                                    }
-                                </Row>
-                            </Card>
 
-                            <Modal isOpen={this.state.openModal}>
-                                <EditTrainerPost
-                                    userId={this.props.userId}
-                                    sessionToken={this.props.sessionToken}
-                                    closeModal={this.closeModal}
-                                    fetchTrainerPosts={this.fetchTrainerPosts} />
-                            </Modal>
-
-                        </Container>
-                    ))
-                    ) : (
-                        <div>
-
-                        </div>
-                    )}
-                    <br />
-                </div>
-            </div>
-        )
+        );
     }
 }
 

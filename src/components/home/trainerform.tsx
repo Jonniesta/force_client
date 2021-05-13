@@ -183,6 +183,7 @@ class Trainer extends React.Component<TrainerProps, TrainerState> {
               </Input>
           </FormGroup>
         </Col>
+      
       <Col md={4}>
           <FormGroup>
             <Label for="exampleZip">Phone Number</Label>

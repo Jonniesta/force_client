@@ -47,7 +47,7 @@ class Register extends React.Component<RegisterAcceptedProps, { redirect: null |
       })
       .then((data) => {
         this.props.updateToken(data.sessionToken, this.props.userId);
-        this.setState({ redirect: '/menu/extra' })
+        this.setState({ redirect: '/menu' })
       })
   }
 
@@ -74,7 +74,9 @@ class Register extends React.Component<RegisterAcceptedProps, { redirect: null |
               placeholder="Email"
               onChange={(e) =>
                 this.props.setEmail(e.target.value)}
-              value={this.props.email} />
+              value={this.props.email} 
+              pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}"
+              title="Must be in standard email format. ex:youremail@email.com"/>
           </FormGroup>
           <FormGroup>
             <Input
@@ -82,7 +84,10 @@ class Register extends React.Component<RegisterAcceptedProps, { redirect: null |
               placeholder="Password"
               onChange={(e) =>
                 this.props.setPassword(e.target.value)}
-              value={this.props.password} />
+              value={this.props.password} 
+              type="password"
+              title="Password must contain one number, one capital letter, and be 5-15 characters in length."
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,15}"/>
           </FormGroup>
           <Button type="submit">Register</Button>
         </Form>
